@@ -745,7 +745,7 @@ let autoArchiveService = {
       else Services.prompt.select(null, 'Dry Run', 'These changes would be applied in real run:', this.dryRunLogItems.length, this.dryRunLogItems, {});
     } else if ( total != this.numOfMessages ) autoArchiveLog.info("Real change " + total + " messages, some folders might be busy.");
     autoArchiveLog.info( self.isExceed ? "Limitation reached, set next" : "auto archive done for all rules, set next");
-    this.updateStatus(this.STATUS_FINISH, total == 0 ? "Archie: Nothing done" : "Archie: Processed " + total + " msgs (" + report.join(", ") + ")");
+    this.updateStatus(this.STATUS_FINISH, total == 0 ? "Archive: Nothing done" : "Archive: Processed " + total + " msgs (" + report.join(", ") + ")");
     let delay = this.isExceed ? autoArchivePref.options.start_exceed_delay : autoArchivePref.options.start_next_delay;
     this.clear();
     return this.preStart(delay);
